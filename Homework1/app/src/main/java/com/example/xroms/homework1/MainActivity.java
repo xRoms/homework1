@@ -34,16 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     boolean opempty;
     boolean error;
 
-    Button button1;
-    Button button2;
-    Button button3;
-    Button button4;
-    Button button5;
-    Button button6;
-    Button button7;
-    Button button8;
-    Button button9;
-    Button button0;
+    Button button[] = new Button[10];
     Button buttonSum;
     Button buttonSub;
     Button buttonMul;
@@ -57,16 +48,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calc);
-        button1 = (Button) findViewById(R.id.d1);
-        button2 = (Button) findViewById(R.id.d2);
-        button3 = (Button) findViewById(R.id.d3);
-        button4 = (Button) findViewById(R.id.d4);
-        button5 = (Button) findViewById(R.id.d5);
-        button6 = (Button) findViewById(R.id.d6);
-        button7 = (Button) findViewById(R.id.d7);
-        button8 = (Button) findViewById(R.id.d8);
-        button9 = (Button) findViewById(R.id.d9);
-        button0 = (Button) findViewById(R.id.d0);
+        button[1] = (Button) findViewById(R.id.d1);
+        button[2] = (Button) findViewById(R.id.d2);
+        button[3] = (Button) findViewById(R.id.d3);
+        button[4] = (Button) findViewById(R.id.d4);
+        button[5] = (Button) findViewById(R.id.d5);
+        button[6] = (Button) findViewById(R.id.d6);
+        button[7] = (Button) findViewById(R.id.d7);
+        button[8] = (Button) findViewById(R.id.d8);
+        button[9] = (Button) findViewById(R.id.d9);
+        button[0] = (Button) findViewById(R.id.d0);
         buttonSub = (Button) findViewById(R.id.sub);
         buttonMul = (Button) findViewById(R.id.mul);
         buttonDiv = (Button) findViewById(R.id.div);
@@ -75,16 +66,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonClear = (Button) findViewById(R.id.clear);
         viewresult = (TextView) findViewById(R.id.result);
 
-        button1.setOnClickListener(this);
-        button2.setOnClickListener(this);
-        button3.setOnClickListener(this);
-        button4.setOnClickListener(this);
-        button5.setOnClickListener(this);
-        button6.setOnClickListener(this);
-        button7.setOnClickListener(this);
-        button8.setOnClickListener(this);
-        button9.setOnClickListener(this);
-        button0.setOnClickListener(this);
+        for (int i = 0; i < 10; i++) {
+            button[i].setOnClickListener(this);
+        }
         buttonSum.setOnClickListener(this);
         buttonSub.setOnClickListener(this);
         buttonMul.setOnClickListener(this);
@@ -154,145 +138,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        if (v == button1) {
-            resultempty = true;
-            if ((firstValue * 10 + 1) <= MAX) {
-                firstValue = firstValue * 10 + 1;
+        for (int i = 0; i < 10; i++) {
+            if (v == button[i]) {
+                resultempty = true;
+                if ((firstValue * 10 + i) <= MAX) {
+                    firstValue = firstValue * 10 + i;
+                }
+                if (opempty) {
+                    firstempty = false;
+                } else {
+                    secondempty = false;
+                }
+                refresh();
+                return;
             }
-            if (opempty) {
-                firstempty = false;
-            }
-            else {
-                secondempty = false;
-            }
-            refresh();
-            return;
-        }
-        if (v == button2) {
-            resultempty = true;
-            if ((firstValue * 10 + 2) <= MAX) {
-                firstValue = firstValue * 10 + 2;
-            }
-            if (opempty) {
-                firstempty = false;
-            }
-            else {
-                secondempty = false;
-            }
-            refresh();
-            return;
-        }
-        if (v == button3) {
-            resultempty = true;
-            if ((firstValue * 10 + 3) <= MAX) {
-                firstValue = firstValue * 10 + 3;
-            }
-            if (opempty) {
-                firstempty = false;
-            }
-            else {
-                secondempty = false;
-            }
-            refresh();
-            return;
-        }
-        if (v == button4) {
-            resultempty = true;
-            if ((firstValue * 10 + 4) <= MAX) {
-                firstValue = firstValue * 10 + 4;
-            }
-            if (opempty) {
-                firstempty = false;
-            }
-            else {
-                secondempty = false;
-            }
-            refresh();
-            return;
-        }
-        if (v == button5) {
-            resultempty = true;
-            if ((firstValue * 10 + 5) <= MAX) {
-                firstValue = firstValue * 10 + 5;
-            }
-            if (opempty) {
-                firstempty = false;
-            }
-            else {
-                secondempty = false;
-            }
-            refresh();
-            return;
-        }
-        if (v == button6) {
-            resultempty = true;
-            if ((firstValue * 10 + 6) <= MAX) {
-                firstValue = firstValue * 10 + 6;
-            }
-            if (opempty) {
-                firstempty = false;
-            }
-            else {
-                secondempty = false;
-            }
-            refresh();
-            return;
-        }
-        if (v == button7) {
-            resultempty = true;
-            if ((firstValue * 10 + 7) <= MAX) {
-                firstValue = firstValue * 10 + 7;
-            }
-            if (opempty) {
-                firstempty = false;
-            }
-            else {
-                secondempty = false;
-            }
-            refresh();
-            return;
-        }
-        if (v == button8) {
-            resultempty = true;
-            if ((firstValue * 10 + 8) <= MAX) {
-                firstValue = firstValue * 10 + 8;
-            }
-            if (opempty) {
-                firstempty = false;
-            }
-            else {
-                secondempty = false;
-            }
-            refresh();
-            return;
-        }
-        if (v == button9) {
-            resultempty = true;
-            if ((firstValue * 10 + 9) <= MAX) {
-                firstValue = firstValue * 10 + 9;
-            }
-            if (opempty) {
-                firstempty = false;
-            }
-            else {
-                secondempty = false;
-            }
-            refresh();
-            return;
-        }
-        if (v == button0) {
-            resultempty = true;
-            if ((firstValue * 10 + 0) <= MAX) {
-                firstValue = firstValue * 10 + 0;
-            }
-            if (opempty) {
-                firstempty = false;
-            }
-            else {
-                secondempty = false;
-            }
-            refresh();
-            return;
         }
         if (v == buttonClear) {
             op = ' ';
